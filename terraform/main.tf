@@ -33,6 +33,10 @@ resource "azurerm_windows_web_app" "app_service" {
 
   site_config {}
 
+  app_settings = {
+    "ASPNETCORE_ENVIRONMENT" = "Production"
+  }
+
   connection_string {
     name  = var.connection_string_name
     type  = "SQLAzure"
